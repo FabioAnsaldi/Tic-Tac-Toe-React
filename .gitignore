@@ -1,3 +1,12 @@
+# Created by https://www.gitignore.io/api/node,bower,typings
+
+### Bower ###
+bower_components
+.bower-cache
+.bower-registry
+.bower-tmp
+
+### Node ###
 # Logs
 logs
 *.log
@@ -24,12 +33,11 @@ coverage
 .grunt
 
 # Bower dependency directory (https://bower.io/)
-bower_components
 
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (https://nodejs.org/api/addons.html)
+# Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
 # Dependency directories
@@ -38,9 +46,6 @@ jspm_packages/
 
 # Typescript v1 declaration files
 typings/
-
-# WebStorm folders
-.idea/
 
 # Optional npm cache directory
 .npm
@@ -59,3 +64,11 @@ typings/
 
 # dotenv environment variables file
 .env
+
+
+### Typings ###
+## Ignore downloaded typings
+typings
+
+
+# End of https://www.gitignore.io/api/node,bower,typings
