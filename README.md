@@ -1,5 +1,5 @@
 # Tic-Tac-Toe-React
-Tic Tac Toe project using React+Redux
+Tic-Tac-Toe project using React+Redux
 
 ### Table of Contents
 -   [Usage](#usage)
