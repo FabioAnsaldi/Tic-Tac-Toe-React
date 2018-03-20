@@ -1,0 +1,26 @@
+{
+  "name": "tic-tac-toe-react",
+  "version": "1.0.0",
+  "description": "Tic Tac Toe project using React+Redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabioAnsaldi/Tic-Tac-Toe-React.git"
+  },
+  "keywords": [
+    "Tic",
+    "Tac",
+    "Toe",
+    "React",
+    "Redux"
+  ],
+  "author": "Fabio Ansaldi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FabioAnsaldi/Tic-Tac-Toe-React/issues"
+  },
+  "homepage": "https://github.com/FabioAnsaldi/Tic-Tac-Toe-React#readme"
+}
