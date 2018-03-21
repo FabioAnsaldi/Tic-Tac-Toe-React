@@ -4,6 +4,8 @@
   "description": "Tic Tac Toe project using React+Redux",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --config ./config/webpack.prod.js",
+    "start": "node ./server/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +24,31 @@
   "bugs": {
     "url": "https://github.com/FabioAnsaldi/Tic-Tac-Toe-React/issues"
   },
-  "homepage": "https://github.com/FabioAnsaldi/Tic-Tac-Toe-React#readme"
+  "homepage": "https://github.com/FabioAnsaldi/Tic-Tac-Toe-React#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-import-glob": "^2.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "connect-history-api-fallback": "^1.5.0",
+    "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.30.1",
+    "redux-logger": "^3.0.6",
+    "uglifyjs-webpack-plugin": "^1.1.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.20.0",
+    "webpack-merge": "^4.1.1",
+    "babel-runtime": "^6.26.0",
+    "express": "^4.16.2",
+    "material-ui": "1.0.0-beta.37",
+    "material-ui-icons": "^1.0.0-beta.36",
+    "react-intl": "^2.4.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "redux": "^3.7.2"
+  }
 }

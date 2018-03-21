@@ -36,7 +36,7 @@ npm run gulp
 ```shell
 npm run prod
 ```
-> It runs (pre-)production environment. You can watch result at specific local URL: http://localhost:3000/
+> It runs (pre-)production environment. You can watch result at specific local URL: http://localhost:8080/
 
 ######
 
