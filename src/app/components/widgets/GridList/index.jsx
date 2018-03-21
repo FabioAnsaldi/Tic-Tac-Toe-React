@@ -23,7 +23,7 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 3,
         display: 'inline-block',
         minWidth: 500,
-        width: '50%',
+        width: '600px',
         margin: 'auto',
     } ),
 });
@@ -42,12 +42,17 @@ export class GridList extends Component {
         console.log( 'GridList rendering ...' );
         const { classes } = this.props;
 
+        const grid = [];
+        for ( let i = 0; i < 3; i++ ) {
+            for ( let j = 0; j < 3; j++ ) {
+                let cell = <Cell key={i.toString() + j.toString()} value={''} x={i} y={j}/>;
+                grid.push( cell );
+            }
+        }
         return (
             <div className={classes.wrapper}>
                 <Paper className={classes.root} elevation={4}>
-                    <Cell/>
-                    <Cell/>
-                    <Cell/>
+                    {grid}
                 </Paper>
             </div>
         );

@@ -13,10 +13,8 @@ import Topbar from '../../widgets/Topbar/index.jsx';
 const styles = {
     wrapper: {
         textAlign: 'center',
-        position: 'absolute',
-        width: '100%',
-        bottom: 0,
-        left: 0,
+        position: 'relative',
+        width: '100%'
     }
 };
 
