@@ -7,6 +7,7 @@ import { withRouter } from 'react-router';
 import { withStyles } from 'material-ui/styles';
 import { FormattedMessage } from 'react-intl';
 import * as gridListActions from './actions';
+import * as controllerActions from '../../applications/controller/actions';
 import * as gridListFunctions from './functions';
 import Paper from 'material-ui/Paper';
 import Cell from '../Cell/index.jsx';
@@ -38,6 +39,21 @@ export class GridList extends Component {
         console.log( 'GridList componentWillUpdate' );
     }
 
+    handleSetCell() {
+
+        let cell = this.props.gridListReducer.cells.find( ( item ) => {
+            return item.x === this.props.x && item.y === this.props.y
+        } );
+
+        if ( cell.value === '' ) {
+            cell.value = this.props.controllerReducer.player;
+            let symbol = this.props.controllerReducer.player === 'X' ? 'O' : 'X';
+            this.props.dispatch( controllerActions.setPlayer( symbol ) );
+        } else {
+            alert( 'Not allowed!' );
+        }
+    }
+
     render() {
         console.log( 'GridList rendering ...' );
         const { classes } = this.props;
@@ -45,10 +61,27 @@ export class GridList extends Component {
         const grid = [];
         for ( let i = 0; i < 3; i++ ) {
             for ( let j = 0; j < 3; j++ ) {
-                let cell = <Cell key={i.toString() + j.toString()} value={''} x={i} y={j}/>;
+                let cell = <Cell key={j.toString() + i.toString()} value={''} x={j.toString()} y={i.toString()} handleSet={this.handleSetCell}/>;
                 grid.push( cell );
             }
         }
+
+        const winningCombinations = [ [ 0, 1, 2 ], [ 3, 4, 5 ], [ 6, 7, 8 ], [ 0, 3, 6 ], [ 1, 4, 7 ], [ 2, 5, 8 ], [ 0, 4, 8 ], [ 2, 4, 6 ] ];
+        let isWinner = ( cells, symbol ) => {
+
+            if ( cells.length === 0 ) return;
+            for ( let a = 0; a < winningCombinations.length; a++ ) {
+                if ( cells[ winningCombinations[ a ][ 0 ] ].value === symbol && cells[ winningCombinations[ a ][ 1 ] ].value === symbol && cells[ winningCombinations[ a ][ 2 ] ].value === symbol ) {
+                    window.setTimeout( () => {
+                        alert( symbol + " WON!" );
+                    }, 100 );
+                }
+            }
+        };
+
+        let symbol = this.props.controllerReducer.player === 'X' ? 'O' : 'X';
+        isWinner( this.props.gridListReducer.cells, symbol );
+
         return (
             <div className={classes.wrapper}>
                 <Paper className={classes.root} elevation={4}>

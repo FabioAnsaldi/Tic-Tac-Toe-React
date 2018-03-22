@@ -1,4 +1,4 @@
-let actions_types = [ 'RESET_STATE', 'TEST' ];
+let actions_types = [ 'RESET_STATE', 'SET_CELLS' ];
 
 const TYPES = {};
 actions_types.map( ( string ) => {

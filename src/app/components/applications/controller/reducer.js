@@ -4,6 +4,7 @@ import TYPES from './types';
 
 export const initialState = {
     layout: 'Main',
+    player: 'X',
     lang: 'it',
     avaibleLang: ['it', 'en'],
     loading: [],
@@ -27,6 +28,8 @@ const controllerReducer = ( state = initialState, action ) => {
             return Object.assign( {}, state, initialState );
         case TYPES.SET_ACCESS_TOKEN:
             return Object.assign( {}, state, { 'accesstoken': action.accesstoken } );
+        case TYPES.SET_PLAYER:
+            return Object.assign( {}, state, { 'player': action.player } );
         case TYPES.SET_MENU_STATE:
             return Object.assign( {}, state, { 'menuOpen': action.menuOpen } );
         case TYPES.SET_ROUTES:

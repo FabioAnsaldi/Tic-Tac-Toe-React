@@ -9,3 +9,9 @@ export const resetState = () => {
     }, initialState );
 };
 
+export const myActionTets = ( input ) => {
+    return {
+        type: TYPES.TEST,
+        propertyName: input
+    };
+};

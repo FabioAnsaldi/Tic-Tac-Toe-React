@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { withStyles } from 'material-ui/styles';
+import * as gridListActions from '../GridList/actions';
 import * as cellActions from './actions';
 import * as cellFunctions from './functions';
 import Card, { CardContent } from 'material-ui/Card';
@@ -30,9 +31,20 @@ const styles = {
     },
     container: {
         padding: '0 !important',
+        width: '100%',
+        height: '100%'
     },
-    text: {
-        fontSize: '9.2rem'
+    textX: {
+        fontSize: '9.2rem',
+        width: '100%',
+        height: '100%',
+        color: 'green'
+    },
+    textO: {
+        fontSize: '9.2rem',
+        width: '100%',
+        height: '100%',
+        color: 'red'
     }
 };
 
@@ -40,28 +52,35 @@ export class Cell extends Component {
 
     componentWillMount() {
         console.log( 'Cell componentWillMount' );
-        //this.props.dispatch( cellActions.setValue( this.props.value ) );
-        //this.props.dispatch( cellActions.setX( this.props.x ) );
-        //this.props.dispatch( cellActions.setY( this.props.y ) );
+        let cells = this.props.gridListReducer.cells;
+        cells.push( { value: this.props.value, x: this.props.x, y: this.props.y } );
+        this.props.dispatch( gridListActions.setCells( cells ) );
     }
 
     componentWillUpdate( nextProps ) {
         console.log( 'Cell componentWillUpdate' );
     }
 
-    handleClick() {
-        debugger
-        alert( this.props.x + ' ' + this.props.y );
+    getValue() {
+        let cell = this.props.gridListReducer.cells.find( ( item ) => {
+            return item.x === this.props.x && item.y === this.props.y
+        } );
+        return cell.value;
     }
 
     render() {
         console.log( 'Cell rendering ...' );
         const { classes } = this.props;
-
+        let value = this.getValue();
+        let type = value === 'X' ? classes.textX : classes.textO;
         return (
             <Card className={classes.card}>
                 <CardContent className={classes.container}>
-                    <Typography onClick={this.handleClick.bind( this )} variant="headline" component="h2" className={classes.text}>X</Typography>
+                    <Typography
+                        onClick={this.props.handleSet.bind( this )}
+                        variant="headline"
+                        component="h2"
+                        className={type}>{value}</Typography>
                 </CardContent>
             </Card>
         );
@@ -79,7 +98,8 @@ export class Cell extends Component {
 function mapStateToProps( state ) {
     return {
         cellReducer: state.cellReducer,
-        controllerReducer: state.controllerReducer
+        controllerReducer: state.controllerReducer,
+        gridListReducer: state.gridListReducer
     };
 }
 

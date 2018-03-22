@@ -9,9 +9,9 @@ export const resetState = () => {
     }, initialState );
 };
 
-export const myActionTets = ( input ) => {
+export const setCells = ( input ) => {
     return {
-        type: TYPES.TEST,
-        propertyName: input
+        type: TYPES.SET_CELLS,
+        cells: input
     };
 };

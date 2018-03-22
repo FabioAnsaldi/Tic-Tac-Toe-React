@@ -9,6 +9,13 @@ export const resetState = () => {
     }, initialState );
 };
 
+export const setPlayer = ( input ) => {
+    return {
+        type: TYPES.SET_PLAYER,
+        player: input
+    };
+};
+
 export const setMenuState = ( input ) => {
     return {
         type: TYPES.SET_MENU_STATE,
