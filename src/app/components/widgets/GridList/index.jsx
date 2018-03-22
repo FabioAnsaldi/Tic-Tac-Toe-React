@@ -8,6 +8,8 @@ import { withStyles } from 'material-ui/styles';
 import { FormattedMessage } from 'react-intl';
 import * as gridListActions from './actions';
 import * as controllerActions from '../../applications/controller/actions';
+import * as alertDialogActions from '../../widgets/AlertDialog/actions';
+import * as winDialogActions from '../../widgets/WinDialog/actions';
 import * as gridListFunctions from './functions';
 import Paper from 'material-ui/Paper';
 import Cell from '../Cell/index.jsx';
@@ -50,7 +52,7 @@ export class GridList extends Component {
             let symbol = this.props.controllerReducer.player === 'X' ? 'O' : 'X';
             this.props.dispatch( controllerActions.setPlayer( symbol ) );
         } else {
-            alert( 'Not allowed!' );
+            this.props.dispatch( alertDialogActions.setOpen( true ) );
         }
     }
 
@@ -73,7 +75,16 @@ export class GridList extends Component {
             for ( let a = 0; a < winningCombinations.length; a++ ) {
                 if ( cells[ winningCombinations[ a ][ 0 ] ].value === symbol && cells[ winningCombinations[ a ][ 1 ] ].value === symbol && cells[ winningCombinations[ a ][ 2 ] ].value === symbol ) {
                     window.setTimeout( () => {
-                        alert( symbol + " WON!" );
+                        this.props.dispatch( controllerActions.setPlayer( symbol ) );
+                        this.props.dispatch( winDialogActions.setOpen( true ) );
+
+                        window.setTimeout( () => {
+                            let cells = this.props.gridListReducer.cells;
+                            cells.forEach( ( item ) => {
+                                item.value = '';
+                            } );
+                            this.props.dispatch( gridListActions.setCells( cells ) );
+                        }, 100 )
                     }, 100 );
                 }
             }

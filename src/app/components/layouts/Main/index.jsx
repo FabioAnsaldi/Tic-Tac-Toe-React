@@ -9,6 +9,8 @@ import { withStyles } from 'material-ui/styles';
 import * as mainActions from './actions';
 import * as VIEWS from '../../views/**/index.jsx';
 import Topbar from '../../widgets/Topbar/index.jsx';
+import AlertDialog from '../../widgets/AlertDialog/index.jsx';
+import WinDialog from '../../widgets/WinDialog/index.jsx';
 
 const styles = {
     wrapper: {
@@ -70,6 +72,8 @@ export class Main extends Component {
                         {this.props.mainReducer.pages}
                         {this.setDefaultView()}
                     </Switch>
+                    <AlertDialog/>
+                    <WinDialog/>
                 </main>
                 <footer className={classes.wrapper}>
                     <p>Powered by React + Redux</p>

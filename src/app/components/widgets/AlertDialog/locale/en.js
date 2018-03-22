@@ -1,5 +1,6 @@
 export default {
     en : {
-        "AlertDialog.SampleKey": "Sample value EN"
+        "AlertDialog.message": "Not allowed!",
+        "AlertDialog.close": "Close",
     }
 };

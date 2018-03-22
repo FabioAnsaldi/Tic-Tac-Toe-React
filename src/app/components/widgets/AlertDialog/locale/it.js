@@ -1,5 +1,6 @@
 export default {
     it : {
-        "AlertDialog.SampleKey": "Esempio valore IT"
+        "AlertDialog.message": "Mossa non consentita!",
+        "AlertDialog.close": "Chiudi",
     }
 };
