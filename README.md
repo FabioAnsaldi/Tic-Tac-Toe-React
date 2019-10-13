@@ -20,7 +20,7 @@ git clone https://github.com/FabioAnsaldi/Tic-Tac-Toe-React.git
 ######
 
 ## Environment
-Now you can run Production environment and see the final result result or if you want you can edit the project by running it through the developing environment
+Now you can run Production environment and see the final result or if you want you can edit the project by running it through the developing environment
 
 ######
 
